@@ -29,4 +29,11 @@ public class LinksRepositoryImpl extends LinksRepository {
         return linksDatasource.getLinkByShortUrl(id).orElseThrow(() -> new NotExistsException(id));
     }
 
+    @Override
+    public Link updateLink(String shortCode, String link) {
+        Link linkObject = this.getLink(shortCode);
+        linkObject.setOriginalUrl(link);
+        return linksDatasource.updateLink(linkObject);
+    }
+
 }

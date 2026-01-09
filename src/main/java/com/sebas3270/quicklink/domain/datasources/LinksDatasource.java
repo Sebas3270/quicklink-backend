@@ -10,4 +10,5 @@ public abstract class LinksDatasource {
     public abstract Optional<Link> getLinkByShortUrl(String id);
     public abstract Optional<Link> getLinkByOriginalLink(String originalLink);
     public abstract List<Link> getAllLinks();
+    public abstract Link updateLink(Link link);
 }

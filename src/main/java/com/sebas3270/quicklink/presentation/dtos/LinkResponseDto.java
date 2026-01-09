@@ -1,4 +1,4 @@
 package com.sebas3270.quicklink.presentation.dtos;
 
-public record LinkResponseDto(String url, String shortCode, String createdAt, String updatedAt) {
+public record LinkResponseDto(String id, String url, String shortCode, String createdAt, String updatedAt) {
 }

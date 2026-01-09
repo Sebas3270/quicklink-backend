@@ -33,4 +33,14 @@ public class LinkController {
         Link link = linksRepository.postLink(createLinkDto.url());
         return ResponseEntity.ok(LinkDtoMappers.entityToMapper(link));
     }
+
+    @PutMapping("/{shortLink}")
+    @Operation(description = "Updates the short link with the new link")
+    ResponseEntity<LinkResponseDto> updateLink(
+            @PathVariable String shortLink,
+            @Valid @RequestBody CreateLinkDto createLinkDto)
+    {
+        Link link = linksRepository.updateLink(shortLink, createLinkDto.url());
+        return ResponseEntity.ok(LinkDtoMappers.entityToMapper(link));
+    }
 }

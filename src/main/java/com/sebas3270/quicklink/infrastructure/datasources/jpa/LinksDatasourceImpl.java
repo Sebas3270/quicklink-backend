@@ -43,4 +43,10 @@ public class LinksDatasourceImpl extends LinksDatasource {
     public List<Link> getAllLinks() {
         return linksJpaRepository.findAll().stream().map(LinksMapper::jpaToEntity).toList();
     }
+
+    @Override
+    public Link updateLink(Link link) {
+        LinkModel linkModel = LinksMapper.entityToJpa(link);
+        return LinksMapper.jpaToEntity(linksJpaRepository.save(linkModel));
+    }
 }
