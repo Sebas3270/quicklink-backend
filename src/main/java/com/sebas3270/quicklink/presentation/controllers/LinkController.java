@@ -43,4 +43,12 @@ public class LinkController {
         Link link = linksRepository.updateLink(shortLink, createLinkDto.url());
         return ResponseEntity.ok(LinkDtoMappers.entityToMapper(link));
     }
+
+    @DeleteMapping("/{shortLink}")
+    @Operation(description = "Deletes the short link provided")
+    ResponseEntity<LinkResponseDto> deleteLink(@PathVariable String shortLink)
+    {
+        Link link = linksRepository.deleteLink(shortLink);
+        return ResponseEntity.ok(LinkDtoMappers.entityToMapper(link));
+    }
 }

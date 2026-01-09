@@ -11,4 +11,5 @@ public abstract class LinksDatasource {
     public abstract Optional<Link> getLinkByOriginalLink(String originalLink);
     public abstract List<Link> getAllLinks();
     public abstract Link updateLink(Link link);
+    public abstract Link deleteLink(Link link);
 }

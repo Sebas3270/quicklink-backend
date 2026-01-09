@@ -36,4 +36,10 @@ public class LinksRepositoryImpl extends LinksRepository {
         return linksDatasource.updateLink(linkObject);
     }
 
+    @Override
+    public Link deleteLink(String shortCode) {
+        Link link = this.getLink(shortCode);
+        return linksDatasource.deleteLink(link);
+    }
+
 }

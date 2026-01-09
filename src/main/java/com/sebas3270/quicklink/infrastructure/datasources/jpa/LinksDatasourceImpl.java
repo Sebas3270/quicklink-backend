@@ -49,4 +49,11 @@ public class LinksDatasourceImpl extends LinksDatasource {
         LinkModel linkModel = LinksMapper.entityToJpa(link);
         return LinksMapper.jpaToEntity(linksJpaRepository.save(linkModel));
     }
+
+    @Override
+    public Link deleteLink(Link link) {
+        LinkModel linkModel = LinksMapper.entityToJpa(link);
+        linksJpaRepository.delete(linkModel);
+        return link;
+    }
 }

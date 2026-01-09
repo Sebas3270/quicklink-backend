@@ -6,4 +6,5 @@ public abstract class LinksRepository {
     public abstract Link postLink(String originalLink);
     public abstract Link getLink(String id);
     public abstract Link updateLink(String shortCode, String link);
+    public abstract Link deleteLink(String shortCode);
 }
