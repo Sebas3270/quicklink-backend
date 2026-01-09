@@ -9,8 +9,6 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.env.Environment;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,9 +17,6 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/shorten")
 @Tag(name = "Links", description = "Links operations")
 public class LinkController {
-
-    @Autowired
-    private Environment env;
 
     private final LinksRepository linksRepository;
 
