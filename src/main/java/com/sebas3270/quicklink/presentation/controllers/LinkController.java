@@ -31,7 +31,7 @@ public class LinkController {
     @Operation(description = "Saves the link provided a returns the complete short url")
     ResponseEntity<String> saveLink(@Valid @RequestBody CreateLinkDto createLinkDto){
         String shortLink = linksRepository
-                .postLink(createLinkDto.originalUrl()).getShortUrl();
+                .postLink(createLinkDto.url()).getShortUrl();
         String fullShortUrl = env.getProperty("app.base-url")
                 + "/" + shortLink;
         return ResponseEntity.ok(fullShortUrl);
