@@ -4,6 +4,7 @@ import com.sebas3270.quicklink.domain.entities.Link;
 import com.sebas3270.quicklink.presentation.dtos.CreateLinkDto;
 import com.sebas3270.quicklink.domain.repositories.LinksRepository;
 import com.sebas3270.quicklink.presentation.dtos.LinkResponseDto;
+import com.sebas3270.quicklink.presentation.dtos.LinkStatisticsResponseDto;
 import com.sebas3270.quicklink.presentation.dtos.mappers.LinkDtoMappers;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -50,5 +51,12 @@ public class LinkController {
     {
         Link link = linksRepository.deleteLink(shortLink);
         return ResponseEntity.ok(LinkDtoMappers.entityToMapper(link));
+    }
+
+    @GetMapping("/{shortLink}/stats")
+    @Operation(description = "Gets the original link when an exist short url provided")
+    ResponseEntity<LinkStatisticsResponseDto> getLinkStatisticsUrl(@PathVariable String shortLink){
+        Link link = linksRepository.getLink(shortLink);
+        return ResponseEntity.ok(LinkDtoMappers.entityToStatisticsMapper(link));
     }
 }

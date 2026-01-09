@@ -11,6 +11,9 @@ public class LinksMapper {
         linkModel.setId(Optional.ofNullable(link.getId()).map(Long::parseLong).orElse(null));
         linkModel.setOriginalLink(link.getOriginalUrl());
         linkModel.setShortUrl(link.getShortUrl());
+        linkModel.setCreatedAt(link.getCreatedAt());
+        linkModel.setUpdatedAt(link.getUpdatedAt());
+        linkModel.setAccessCount(link.getAccessCount());
         return linkModel;
     }
 
@@ -21,6 +24,7 @@ public class LinksMapper {
         link.setOriginalUrl(linkModel.getOriginalLink());
         link.setCreatedAt(linkModel.getCreatedAt());
         link.setUpdatedAt(linkModel.getUpdatedAt());
+        link.setAccessCount(linkModel.getAccessCount());
         return link;
     }
 }

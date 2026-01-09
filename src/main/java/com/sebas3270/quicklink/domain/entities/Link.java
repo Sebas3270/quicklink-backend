@@ -11,4 +11,9 @@ public class Link {
     private String originalUrl;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
+    private int accessCount;
+
+    public void increaseView(){
+        accessCount += 1;
+    }
 }

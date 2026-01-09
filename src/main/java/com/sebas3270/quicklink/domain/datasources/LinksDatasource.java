@@ -12,4 +12,9 @@ public abstract class LinksDatasource {
     public abstract List<Link> getAllLinks();
     public abstract Link updateLink(Link link);
     public abstract Link deleteLink(Link link);
+
+    public Link increaseLinkViews(Link link){
+        link.setAccessCount(link.getAccessCount() + 1);
+        return updateLink(link);
+    }
 }

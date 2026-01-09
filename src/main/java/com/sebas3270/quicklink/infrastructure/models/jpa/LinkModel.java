@@ -28,4 +28,7 @@ public class LinkModel {
     @UpdateTimestamp
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
+
+    @Column(name = "access_count")
+    private int accessCount;
 }

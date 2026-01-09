@@ -26,7 +26,9 @@ public class LinksRepositoryImpl extends LinksRepository {
 
     @Override
     public Link getLink(String id) {
-        return linksDatasource.getLinkByShortUrl(id).orElseThrow(() -> new NotExistsException(id));
+        Link link = linksDatasource.getLinkByShortUrl(id)
+                .orElseThrow(() -> new NotExistsException(id));
+        return linksDatasource.increaseLinkViews(link);
     }
 
     @Override
