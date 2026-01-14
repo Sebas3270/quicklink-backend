@@ -44,4 +44,9 @@ public class LinksRepositoryImpl extends LinksRepository {
         return linksDatasource.deleteLink(link);
     }
 
+    @Override
+    public Link getStatsLink(String id) {
+        return linksDatasource.getLinkByShortUrl(id)
+                .orElseThrow(() -> new NotExistsException(id));
+    }
 }

@@ -56,7 +56,7 @@ public class LinkController {
     @GetMapping("/{shortLink}/stats")
     @Operation(description = "Gets the original link when an exist short url provided")
     ResponseEntity<LinkStatisticsResponseDto> getLinkStatisticsUrl(@PathVariable String shortLink){
-        Link link = linksRepository.getLink(shortLink);
+        Link link = linksRepository.getStatsLink(shortLink);
         return ResponseEntity.ok(LinkDtoMappers.entityToStatisticsMapper(link));
     }
 }
